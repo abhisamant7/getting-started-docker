@@ -1,16 +1,16 @@
 pipeline {
-  agent { label "windows" }
+  agent any
   stages {
     stage("build") {
       steps {
-        sh """
+        bat """
           docker build -t hello_there .
         """
       }
     }
     stage("run") {
       steps {
-        sh """
+        bat """
           docker run --rm hello_there
         """
       }
